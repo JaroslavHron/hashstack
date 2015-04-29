@@ -15,9 +15,16 @@ build_stages:
     handler: bash
     bash: |
       cat > site.cfg << EOF
-      [atlas]
-      atlas_libs = openblas
+      [blas_opt]
+      blas_libs = openblas
       library_dirs = ${OPENBLAS_DIR}/lib
+      [lapack_opt]
+      lapack_libs = openblas
+      library_dirs = ${OPENBLAS_DIR}/lib
+      [openblas]
+      libraries = openblas
+      library_dirs = ${OPENBLAS_DIR}/lib
+      include_dirs = ${OPENBLAS_DIR}/include
       EOF
 
   - when: platform == 'linux'
@@ -27,8 +34,8 @@ build_stages:
     bash: |
       export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib -Wl,-rpath=${OPENBLAS_DIR}/lib $(${PYTHON_DIR}/bin/python-config --ldflags)"
       #export ATLAS=None
-      export LAPACK=None
-      export BLAS=None
+      #export LAPACK=None
+      #export BLAS=None
 
   - when: machine == 'CrayXE6'
     name: create-site.cfg
