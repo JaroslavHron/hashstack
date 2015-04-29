@@ -3,7 +3,7 @@ when platform != 'linux':
 when platform == 'linux':
   extends: [distutils_package, libflags]
 dependencies:
-  build: [lapack, numpy]
+  build: [lapack, numpy, suitesparse]
   run: [lapack, numpy]
 
 sources:
@@ -11,6 +11,32 @@ sources:
     key: tar.gz:vhrty7xamdbvzvog5y5mtzpjxo4zegox
 
 build_stages:
+
+  - when: platform == 'linux'
+    name: create-site.cfg
+    before: install
+    handler: bash
+    bash: |
+      cat > site.cfg << EOF
+      [blas_opt]
+      blas_libs = openblas
+      library_dirs = ${OPENBLAS_DIR}/lib
+      [lapack_opt]
+      lapack_libs = openblas
+      library_dirs = ${OPENBLAS_DIR}/lib
+      [openblas]
+      libraries = openblas
+      library_dirs = ${OPENBLAS_DIR}/lib
+      include_dirs = ${OPENBLAS_DIR}/include
+      [amd]
+      library_dirs = ${SUITESPARSE_DIR}/lib
+      include_dirs = ${SUITESPARSE_DIR}/include/suitesparse
+      [umfpack]
+      library_dirs = ${SUITESPARSE_DIR}/lib
+      include_dirs = ${SUITESPARSE_DIR}/include/suitesparse
+      EOF
+
+
   - when: platform == 'linux'
     name: set-lapack-paths
     after: libflags
@@ -18,6 +44,7 @@ build_stages:
     handler: bash
     bash: |
       export LDFLAGS="$LDFLAGS -shared"
-      export ATLAS=$LAPACK_DIR
-      export BLAS=$LAPACK_DIR
-      export LAPACK=$LAPACK_DIR
+      #export UMFPACK=${UMFPACK_DIR}
+      #export ATLAS=$LAPACK_DIR
+      #export BLAS=$LAPACK_DIR
+      #export LAPACK=$LAPACK_DIR
