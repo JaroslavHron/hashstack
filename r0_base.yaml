@@ -1,0 +1,14 @@
+extends:
+- file: r0.yaml
+
+parameters:
+  debug: false
+
+
+packages:
+  mpi:
+    build_with: gcc
+    use: openmpi
+  python:
+    host: true
+    use_python_host_packages: true
