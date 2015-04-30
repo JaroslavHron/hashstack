@@ -3,7 +3,8 @@
 # mshr. It is useful for developers who need to install FEniCS components by
 # themselves.
 
-extends: - file: r0d0.yaml
+extends:
+- file: r0d0.yaml
 
 parameters:
   debug: false
