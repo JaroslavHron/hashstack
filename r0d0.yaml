@@ -61,6 +61,9 @@ packages:
   libtiff:
     use: host-libtiff
   cmake:
-    use: host-cmake
+    #use: host-cmake
+    sources:
+    - key: tar.gz:vxuu43rwaodxivs7flwyqzsbkrbuit5x
+      url: http://www.cmake.org/files/v3.2/cmake-3.2.2.tar.gz
 #  vtk:
 #    use: host-vtk
