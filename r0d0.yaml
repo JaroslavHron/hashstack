@@ -36,6 +36,14 @@ packages:
   python:
     host: true
     use_python_host_packages: true
+  mpi:
+    use: host-mpi
+  blas:
+    use: openblas
+  lapack:
+    use: openblas
+  openblas:
+    use_threads: false
   freetype:
     use: host-freetype
   szip:
@@ -62,5 +70,3 @@ packages:
     use: host-libtiff
   cmake:
     use: host-cmake
-#  vtk:
-#    use: host-vtk
