@@ -30,7 +30,7 @@ parameters:
   #PATH: |
   #  /usr/bin:/bin:/usr/sbin:/sbin
   PROLOGUE: |
-    echo "Loading modules:" ; source /etc/profile.d/modules.sh || true ; module load openmpi/1.8.3-gnu ; module list ;
+    echo "Loading MPI module:" ; source /etc/profile.d/modules.sh || true ; module load openmpi/1.8.5-gnu ; module list ;
 
 packages:
   python:
@@ -61,9 +61,6 @@ packages:
   libtiff:
     use: host-libtiff
   cmake:
-    #use: host-cmake
-    sources:
-    - key: tar.gz:vxuu43rwaodxivs7flwyqzsbkrbuit5x
-      url: http://www.cmake.org/files/v3.2/cmake-3.2.2.tar.gz
+    use: host-cmake
 #  vtk:
 #    use: host-vtk
