@@ -30,7 +30,7 @@ parameters:
   #PATH: |
   #  /usr/bin:/bin:/usr/sbin:/sbin
   PROLOGUE: |
-    echo "Loading modules:" ; source /etc/profile.d/modules.sh || true ; module load openmpi/1.8.3-gnu ; module list ;
+    echo "Loading MPI module:" ; source /etc/profile.d/modules.sh || true ; module load openmpi/1.8.5-gnu ; module list ;
 
 packages:
   python:
