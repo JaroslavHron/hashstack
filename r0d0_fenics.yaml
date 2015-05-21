@@ -3,12 +3,18 @@ extends:
 
 packages:
   fiat:
+
   ufl:
+
   ffc:
+
   uflacs:
+
   instant:
+
   dolfin:
     build_with: |
       openblas, suitesparse, scotch, hdf5, petsc, petsc4py, trilinos, suitesparse, scotch, slepc, slepc4py, vtk, zlib
     with_find_path: true
+
   mshr:

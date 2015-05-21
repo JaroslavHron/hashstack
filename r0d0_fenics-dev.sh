@@ -18,8 +18,7 @@ for PACKAGE in $PACKAGES; do
     sed "/$PACKAGE:/a\\
 \\    sources:\\
 \\      - key: git:$CHANGESET\\
-\\        url: https://bitbucket.org/fenics-project/$PACKAGE.git\\
-" $TMP_FILE > $TMP1_FILE
+\\        url: https://bitbucket.org/fenics-project/$PACKAGE.git" $TMP_FILE > $TMP1_FILE
     mv $TMP1_FILE $TMP_FILE
     done
 
