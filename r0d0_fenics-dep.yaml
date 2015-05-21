@@ -26,9 +26,9 @@ packages:
       url: http://trilinos.org/oldsite/download/files/trilinos-11.12.1-Source.tar.bz2
   petsc:
     build_with: |
-      openblas, trilinos
+      openblas
     download: |
-      superlu, superlu_dist, hypre, scalapack, blacs, mumps, ml, metis, parmetis, scotch, suitesparse
+      superlu, superlu_dist, hypre, scalapack, blacs, mumps, trilinos, ml, suitesparse, scotch, metis, parmetis
     coptflags: -O2
     link: shared
     debug: false

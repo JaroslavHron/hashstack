@@ -26,9 +26,9 @@ packages:
 
   petsc:
     build_with: |
-      openblas, cmake
+      openblas
     download: |
-      superlu, superlu_dist, hypre, scalapack, blacs, mumps, trilinos, suitesparse, scotch, metis, parmetis
+      superlu, superlu_dist, hypre, scalapack, blacs, mumps, trilinos, ml, suitesparse, scotch, metis, parmetis
     coptflags: -O2
     link: shared
     debug: false
