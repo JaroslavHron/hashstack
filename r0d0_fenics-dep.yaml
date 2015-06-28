@@ -49,3 +49,5 @@ packages:
   vtk:
   suitesparse:
   scotch:
+  mpfr:
+  gmp:
