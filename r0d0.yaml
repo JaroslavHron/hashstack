@@ -26,11 +26,9 @@ parameters:
   HOST_MPIF77: mpif77
   HOST_MPIF90: mpif90
   HOST_MPIEXEC: mpirun
-  HOST_CMAKE: cmake
-  #PATH: |
-  #  /usr/bin:/bin:/usr/sbin:/sbin
+  HOST_CMAKE: /usr/bin/cmake
   PROLOGUE: |
-    echo "Loading MPI module:" ; source /etc/profile.d/modules.sh || true ; module load openmpi/1.8.5-gnu ; module list ;
+    echo "Loading mpi module... " ; source /etc/profile.d/modules.sh || true ; module load openmpi/1.8.5-gnu ; module list ;
 
 packages:
   python:
