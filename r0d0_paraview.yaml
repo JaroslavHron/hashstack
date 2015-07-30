@@ -6,6 +6,7 @@ parameters:
 
 packages:
   launcher:
+  gcc:
 
   boost:
     toolset: gcc
@@ -18,5 +19,8 @@ packages:
       url: ftp://ftp.freedesktop.org/pub/mesa/older-versions/10.x/10.2.4/MesaLib-10.2.4.tar.bz2
 
   paraview:
+    sources:
+    - key: git:f7aac037722d9d13b75d9fdb15a1053c0874c6c6
+      url: https://github.com/Kitware/ParaView.git
     build_with: |
       mesa

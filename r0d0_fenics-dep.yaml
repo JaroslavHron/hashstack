@@ -12,18 +12,16 @@ parameters:
 packages:
   launcher:
 
-#  cmake:
-#    sources:
-#    - key: tar.gz:ix2nh6ukf5q4ycjk4rq2vrgkyg5ljldh
-#      url: http://www.cmake.org/files/v3.1/cmake-3.1.3.tar.gz
-
   hypre:
     with_openblas: true
+
   hdf5:
+
   trilinos:
     sources:
     - key: tar.bz2:uqktsqkffhdfsbjgbm567y5o4ty52eav
       url: http://trilinos.org/oldsite/download/files/trilinos-11.12.1-Source.tar.bz2
+
   petsc:
     build_with: |
       openblas
@@ -32,12 +30,16 @@ packages:
     coptflags: -O2
     link: shared
     debug: false
+
   slepc:
+
   swig:
+
   boost:
     toolset: gcc
     address_model: 64
     build_with: python
+
   matplotlib:
   numpy:
   sympy:
@@ -51,3 +53,4 @@ packages:
   scotch:
   mpfr:
   gmp:
+  flufl_lock:
