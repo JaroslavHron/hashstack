@@ -51,4 +51,6 @@ packages:
   vtk:
   suitesparse:
   scotch:
+  mpfr:
+  gmp:
   flufl_lock:
