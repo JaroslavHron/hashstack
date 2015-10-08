@@ -1,0 +1,56 @@
+# This profile handles all the dependencies of FEniCS stack except
+# FEniCS packages themselves, i.e. FIAT, UFL, FFC, UFLACS, Instant, DOLFIN and
+# mshr. It is useful for developers who need to install FEniCS components by
+# themselves.
+
+extends:
+- file: salomon.yaml
+
+parameters:
+  debug: false
+
+packages:
+  launcher:
+
+  hypre:
+    with_openblas: true
+
+  hdf5:
+
+  trilinos:
+    sources:
+    - key: tar.bz2:uqktsqkffhdfsbjgbm567y5o4ty52eav
+      url: http://trilinos.org/oldsite/download/files/trilinos-11.12.1-Source.tar.bz2
+
+  petsc:
+    build_with: |
+      openblas, suitesparse
+    download: |
+      superlu, superlu_dist, hypre, scalapack, blacs, mumps, trilinos, ml, scotch, metis, parmetis
+    coptflags: -O2
+    link: shared
+    debug: false
+
+  slepc:
+
+  swig:
+
+  boost:
+    toolset: gcc
+    address_model: 64
+    build_with: python
+
+  matplotlib:
+  numpy:
+  sympy:
+  scipy:
+  mpi4py:
+  petsc4py:
+  slepc4py:
+  eigen:
+  vtk:
+  suitesparse:
+  scotch:
+  mpfr:
+  gmp:
+  flufl_lock:

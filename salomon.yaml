@@ -1,0 +1,72 @@
+package_dirs:
+- pkgs
+- base
+
+hook_import_dirs:
+- base
+
+parameters:
+  BASH: /bin/bash
+  #PROLOGUE: | # by default, PROLOGUE is a no-op
+
+  # Note, if you change pyver,
+  # you should probably change the following two lines as well.
+  pyver: '2.7'  # as in used in lib/pythonX.Y/site-packages
+  python_site_packages_rel: 'lib/python2.7/site-packages'
+  python_host_packages: '/usr/lib/python2.7/dist-packages'
+  # use_python_host_packages: true
+
+  platform: linux
+  fortran: true
+  PATH: /usr/bin:/bin
+
+  machine: salomon
+  HOST_MPICC: mpicc
+  HOST_MPICXX: mpicxx
+  HOST_MPIF77: mpif77
+  HOST_MPIF90: mpif90
+  HOST_MPIEXEC: mpirun
+  HOST_CMAKE: /usr/bin/cmake
+  HOST_OPENBLAS_DIR: /apps/all/OpenBLAS/0.2.14-LAPACK-3.5.0
+  PROLOGUE: |
+     echo "Loading modules..."; . /etc/profile.d/99-it4i_modules.sh || true ; . /usr/share/Modules/init/bash || true; module load gompi/2015b OpenBLAS/0.2.14-LAPACK-3.5.0 ; module list;
+
+packages:
+  python:
+    #host: true
+    link: shared
+    use_python_host_packages: true
+  mpi:
+    use: host-mpi
+  blas:
+    use: host-openblas
+  lapack:
+    use: host-openblas
+  openblas:
+    use: host-openblas
+  freetype:
+    use: host-freetype
+  szip:
+    use: host-szip
+  flex:
+    use: host-flex
+  zlib:
+    use: host-zlib
+  pkg-config:
+    use: host-pkg-config
+  bison:
+    use: host-bison
+  bzip2:
+    use: host-bzip2
+  m4:
+    use: host-m4
+  sqlite:
+    use: host-sqlite
+  libxml2:
+    use: host-libxml2
+  openssl:
+    use: host-openssl
+  libtiff:
+    use: host-libtiff
+  cmake:
+    use: host-cmake

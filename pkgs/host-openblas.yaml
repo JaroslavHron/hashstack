@@ -1,0 +1,4 @@
+when_build_dependency:
+  - {set: 'BLAS_LDFLAGS', value: '-lopenblas'}
+  - {set: 'LAPACK_LDFLAGS', value: '-lopenblas'}
+  - {set: 'OPENBLAS_DIR', value: '{{HOST_OPENBLAS_DIR}}'}
