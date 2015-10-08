@@ -12,7 +12,7 @@ cp $TEMPLATE_FILE $TMP_FILE
 
 PACKAGES="dolfin ffc fiat instant mshr ufl uflacs"
 for PACKAGE in $PACKAGES; do
-    CHANGESET=$(git ls-remote https://bitbucket.org/fenics-project/$PACKAGE.git master | awk '{ print $1 }')
+    CHANGESET=$(git ls-remote https://bitbucket.org/fenics-project/$PACKAGE.git heads/master | awk '{ print $1 }')
     : ${DOLFIN_CHANGESET:=$CHANGESET}
     echo "Updating $PACKAGE to changeset $CHANGESET."
     sed "/$PACKAGE:/a\\
