@@ -7,6 +7,9 @@ sources:
   - url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.0.2.tar.gz
     key: tar.gz:so2zfcmh7yaqqcft7x7t47w66qx3fwgp
 
+when_build_dependency:
+  - {set: 'SUITESPARSE_DIR', value: '${ARTIFACT}'}
+
 build_stages:
   - name: configure
     mode: replace
