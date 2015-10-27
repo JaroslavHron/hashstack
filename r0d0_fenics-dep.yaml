@@ -23,16 +23,17 @@ packages:
       url: http://trilinos.org/oldsite/download/files/trilinos-11.12.1-Source.tar.bz2
 
   petsc:
+    version: '3.6.1'
     build_with: |
-      openblas
+      openblas, boost
     download: |
-      superlu, superlu_dist, hypre, scalapack, blacs, mumps, trilinos, ml, suitesparse, scotch, metis, parmetis
+      superlu_dist, hypre, scalapack, blacs, mumps, ml, suitesparse, scotch, metis, parmetis
     coptflags: -O2
     link: shared
     debug: false
 
   slepc:
-
+    version: '3.6.1'
   swig:
 
   boost:
@@ -46,7 +47,9 @@ packages:
   scipy:
   mpi4py:
   petsc4py:
+    version: '3.6.0'
   slepc4py:
+    version: '3.6.0'
   eigen:
   vtk:
   suitesparse:
