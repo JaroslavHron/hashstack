@@ -1,17 +1,5 @@
-# This profile file controls your <#> (HashDist) build environment.
-
-# In the future, we'll provide better incorporation of
-# automatic environment detection.  For now, have a look
-# at the YAML files in the top-level directory and choose
-# the most *specific* file that matches your environment.
-
 extends:
 - file: r0d0.yaml
-
-# The packages list specifies all the packages that you
-# require installed.  <#> will ensure that all packages
-# and their dependencies are installed when you build this
-# profile.
 
 parameters:
   debug: false
@@ -25,10 +13,11 @@ packages:
 #      url: http://www.cmake.org/files/v3.1/cmake-3.1.3.tar.gz
 
   petsc:
+    version: '3.6.1'
     build_with: |
-      openblas
+      openblas, boost
     download: |
-      superlu, superlu_dist, hypre, scalapack, blacs, mumps, trilinos, ml, suitesparse, scotch, metis, parmetis
+      superlu_dist, hypre, scalapack, blacs, mumps, ml, suitesparse, scotch, metis, parmetis
     coptflags: -O2
     link: shared
     debug: false
