@@ -10,7 +10,18 @@ TMP1_FILE=${CONFIG}-tmp1.yaml
 
 cp $TEMPLATE_FILE $TMP_FILE
 
-PACKAGES="dolfin ffc fiat instant mshr ufl uflacs"
+PACKAGE="dolfin"
+CHANGESET=$(git ls-remote https://bitbucket.org/fenics-project/$PACKAGE.git heads/jan/fix-slow-real | awk '{ print $1 }')
+: ${DOLFIN_CHANGESET:=$CHANGESET}
+echo "Updating $PACKAGE to changeset $CHANGESET."
+sed "/$PACKAGE:/a\\
+\\    sources:\\
+\\      - key: git:$CHANGESET\\
+\\        url: https://bitbucket.org/fenics-project/$PACKAGE.git" $TMP_FILE > $TMP1_FILE
+mv $TMP1_FILE $TMP_FILE
+
+
+PACKAGES="ffc fiat instant mshr ufl uflacs"
 for PACKAGE in $PACKAGES; do
     CHANGESET=$(git ls-remote https://bitbucket.org/fenics-project/$PACKAGE.git heads/master | awk '{ print $1 }')
     : ${DOLFIN_CHANGESET:=$CHANGESET}
