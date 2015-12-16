@@ -3,9 +3,12 @@ dependencies:
   build: [python, swig, mpi, numpy, openblas, suitesparse, boost, netcdf4,
           hdf5, glm]
 
+#sources:
+#- key: tar.bz2:wdbi4nvxaxpwimfb6p5cvszc4v52xnc5
+#  url: http://trilinos.org/oldsite/download/files/trilinos-11.14.2-Source.tar.bz2
 sources:
-- key: tar.bz2:wdbi4nvxaxpwimfb6p5cvszc4v52xnc5
-  url: http://trilinos.org/oldsite/download/files/trilinos-11.14.2-Source.tar.bz2
+- key: tar.bz2:parf2zin3t6eko2azxnztmx3w6mzr73d
+  url: http://trilinos.org/oldsite/download/files/trilinos-12.4.2-Source.tar.bz2
 
 defaults:
   # include/trilinos/Makefile.export.Trilinos contains hard-coded path
@@ -19,15 +22,20 @@ build_stages:
   mode: override
   extra: ['-D CMAKE_CXX_COMPILER:FILEPATH=${MPICXX}',
           '-D CMAKE_C_COMPILER:FILEPATH=${MPICC}',
+          '-D CMAKE_BUILD_TYPE:STRING="RELEASE"',
           '-D Trilinos_INSTALL_INCLUDE_DIR:PATH=include/trilinos',
           '-D Trilinos_ENABLE_ALL_OPTIONAL_PACKAGES:BOOL=ON',
           '-D Trilinos_ENABLE_Epetra:BOOL=ON',
           '-D Trilinos_ENABLE_ML:BOOL=ON',
           '-D Trilinos_ENABLE_PyTrilinos:BOOL=ON',
+          '-D Trilinos_ENABLE_EXPLICIT_INSTANTIATION:BOOL=ON',
           '-D Trilinos_ENABLE_TESTS:BOOL=OFF',
           '-D Trilinos_ENABLE_EXAMPLES:BOOL=OFF',
+          '-D Trilinos_ENABLE_Amesos2:BOOL=ON',
+          '-D Trilinos_ENABLE_MueLu:BOOL=ON',
           '-D BUILD_SHARED_LIBS:BOOL=ON',
           '-D TPL_ENABLE_MPI:BOOL=ON',
+          '-D TPL_ENABLE_BLAS:BOOL=ON',
           '-D TPL_ENABLE_UMFPACK:BOOL=ON',
           '-D BLAS_LIBRARY_NAMES:STRING=openblas',
           '-D BLAS_LIBRARY_DIRS:PATH=${OPENBLAS_DIR}/lib',
@@ -39,6 +47,7 @@ build_stages:
           '-D SWIG_EXECUTABLE:FILEPATH=${SWIG_EXECUTABLE}',
           '-D Trilinos_ENABLE_DEVELOPMENT_MODE:BOOL=OFF',
           '-D PYTHON_EXECUTABLE:FILEPATH=${PYTHON}']
+
 
 - when: teuchos_debug
   name: configure
