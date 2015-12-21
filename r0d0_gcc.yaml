@@ -1,0 +1,10 @@
+extends:
+- file: r0d0.yaml
+
+parameters:
+  debug: false
+
+packages:
+  launcher:
+  gcc:
+    version: '5.1.0'

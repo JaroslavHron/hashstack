@@ -28,7 +28,7 @@ parameters:
   HOST_MPIEXEC: mpirun
   HOST_CMAKE: /usr/bin/cmake
   PROLOGUE: |
-    echo "Loading mpi module... " ; source /etc/profile.d/modules.sh || true ; module load mvapich/2.1-gnu hdf5/1.8.16-gnu-mvapich ; module list ;
+    echo "Loading mpi module... " ; source /etc/profile.d/modules.sh || true ; module load mpich/3.2-gnu ; module list ;
 
 packages:
   python:
@@ -36,8 +36,6 @@ packages:
     use_python_host_packages: true
   mpi:
     use: host-mpi
-  hdf5:
-    use: host-hdf5
   blas:
     use: openblas
   lapack:

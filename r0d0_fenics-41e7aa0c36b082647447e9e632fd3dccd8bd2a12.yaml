@@ -1,5 +1,5 @@
 extends:
-- file: r0d0_dev_fenics-dep.yaml
+- file: r0d0_fenics-dep.yaml
 
 packages:
   fiat:
@@ -9,27 +9,27 @@ packages:
 
   ufl:
     sources:
-      - key: git:f3d31f2aea32141b2789a42839d0b22d188b6f2a
+      - key: git:34f038c902a1cbdc0eb2626d209bb9a52085cfe3
         url: https://bitbucket.org/fenics-project/ufl.git
 
   ffc:
     sources:
-      - key: git:3ac2dad202525b5e7cb04b17c9c1f5df716334bd
+      - key: git:200506762057425b524eb69908ce5fc58f9de501
         url: https://bitbucket.org/fenics-project/ffc.git
 
   uflacs:
     sources:
-      - key: git:073fd2bb24bef7929bf6c12b55b78904311a9245
+      - key: git:8aee7324e074e41397b0c42bc45dd941899c47f1
         url: https://bitbucket.org/fenics-project/uflacs.git
 
   instant:
     sources:
-      - key: git:406c1a85a8a90aa8a156a03b0e020abe035e056e
+      - key: git:b9411d8ea1bd2f140dd11c24c7470d838a1db397
         url: https://bitbucket.org/fenics-project/instant.git
 
   dolfin:
     sources:
-      - key: git:c119915a877bf543e139f159274aad19a796d2a2
+      - key: git:41e7aa0c36b082647447e9e632fd3dccd8bd2a12
         url: https://bitbucket.org/fenics-project/dolfin.git
     build_with: |
       openblas, suitesparse, scotch, hdf5, petsc, petsc4py, trilinos, suitesparse, scotch, slepc, slepc4py, vtk, zlib
@@ -37,5 +37,5 @@ packages:
 
   mshr:
     sources:
-      - key: git:6e7cd5cd80e2d0c5c3040b19ac9f08b506be6727
+      - key: git:20f652b089222bd93f55caed720a04a5a1679dc0
         url: https://bitbucket.org/fenics-project/mshr.git

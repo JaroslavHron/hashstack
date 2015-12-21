@@ -4,7 +4,7 @@
 # themselves.
 
 extends:
-- file: r0d0_dev.yaml
+- file: r0d0_dev_mpich.yaml
 
 parameters:
   debug: false
