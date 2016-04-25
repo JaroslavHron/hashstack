@@ -1,0 +1,44 @@
+extends:
+- file: r0d0_fenics-dep.yaml
+
+packages:
+  trilinos:
+    version: '12.6'
+
+  fiat:
+    sources:
+      - key: git:5b7f77abcea7d7e9b67b597a32543a12547ddf9b
+        url: https://bitbucket.org/fenics-project/fiat.git
+
+  ufl:
+    sources:
+      - key: git:6f7def008c61cbcb1f1ad6d03a730fb8b863b391
+        url: https://bitbucket.org/fenics-project/ufl.git
+
+  ffc:
+    sources:
+      - key: git:75daf9f1d30f6b975569ee4113c6bc53203368df
+        url: https://bitbucket.org/fenics-project/ffc.git
+
+  uflacs:
+    sources:
+      - key: git:073fd2bb24bef7929bf6c12b55b78904311a9245
+        url: https://bitbucket.org/fenics-project/uflacs.git
+
+  instant:
+    sources:
+      - key: git:406c1a85a8a90aa8a156a03b0e020abe035e056e
+        url: https://bitbucket.org/fenics-project/instant.git
+
+  dolfin:
+    sources:
+      - key: git:fdc68f8d039a364805391fc977c7f89287e8ee9e
+        url: https://bitbucket.org/fenics-project/dolfin.git
+    build_with: |
+      openblas, suitesparse, scotch, hdf5, petsc, petsc4py, trilinos, suitesparse, scotch, slepc, slepc4py, vtk, zlib
+    build_type: Developer
+
+  mshr:
+    sources:
+      - key: git:6e7cd5cd80e2d0c5c3040b19ac9f08b506be6727
+        url: https://bitbucket.org/fenics-project/mshr.git
