@@ -3,12 +3,25 @@ dependencies:
   build: [python, swig, mpi, numpy, openblas, suitesparse, boost, netcdf4,
           hdf5, glm]
 
-#sources:
-#- key: tar.bz2:wdbi4nvxaxpwimfb6p5cvszc4v52xnc5
-#  url: http://trilinos.org/oldsite/download/files/trilinos-11.14.2-Source.tar.bz2
-sources:
-- key: tar.bz2:parf2zin3t6eko2azxnztmx3w6mzr73d
-  url: http://trilinos.org/oldsite/download/files/trilinos-12.4.2-Source.tar.bz2
+when version == '11.14':
+  sources:
+  - key: tar.bz2:wdbi4nvxaxpwimfb6p5cvszc4v52xnc5
+    url: http://trilinos.org/oldsite/download/files/trilinos-11.14.2-Source.tar.bz2
+
+when version == '11.12':
+  sources:
+  - key: tar.bz2:uqktsqkffhdfsbjgbm567y5o4ty52eav
+    url: http://trilinos.org/oldsite/download/files/trilinos-11.12.1-Source.tar.bz2
+
+when version == '12.4':
+  sources:
+  - key: tar.bz2:parf2zin3t6eko2azxnztmx3w6mzr73d
+    url: http://trilinos.org/oldsite/download/files/trilinos-12.4.2-Source.tar.bz2
+
+when version == '12.6':
+  sources:
+  - key: tar.bz2:v2asdyuzonmq7gjkwgm7pp4mkz7weje4
+    url: http://trilinos.csbsju.edu/download/files/trilinos-12.6.1-Source.tar.bz2
 
 defaults:
   # include/trilinos/Makefile.export.Trilinos contains hard-coded path
@@ -16,6 +29,7 @@ defaults:
   # Build Teuchos in Debug mode (RCP/Ptr dangling pointer checks, bounds
   # checks, ...)
   teuchos_debug: false
+  version: '12.6'
 
 build_stages:
 - name: configure
@@ -33,6 +47,7 @@ build_stages:
           '-D Trilinos_ENABLE_EXAMPLES:BOOL=OFF',
           '-D Trilinos_ENABLE_Amesos2:BOOL=ON',
           '-D Trilinos_ENABLE_MueLu:BOOL=ON',
+          '-D Trilinos_ENABLE_STK:BOOL=OFF',
           '-D BUILD_SHARED_LIBS:BOOL=ON',
           '-D TPL_ENABLE_MPI:BOOL=ON',
           '-D TPL_ENABLE_BLAS:BOOL=ON',
