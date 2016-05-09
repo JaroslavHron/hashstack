@@ -27,14 +27,15 @@ parameters:
   HOST_MPIF90: mpif90
   HOST_MPIEXEC: mpirun
   HOST_CMAKE: /usr/bin/cmake
-  HOST_OPENBLAS_DIR: /apps/all/OpenBLAS/0.2.14-LAPACK-3.5.0
+  HOST_OPENBLAS_DIR: /apps/all/OpenBLAS/0.2.14-GNU-5.1.0-2.25-LAPACK-3.5.0/
+  HOST_PYTHON: /apps/all/Python/2.7.9-foss-2015b/bin/python
+
   PROLOGUE: |
-     echo "Loading modules..."; . /etc/profile.d/99-it4i_modules.sh || true ; . /usr/share/Modules/init/bash || true; module load gompi/2015b OpenBLAS/0.2.14-LAPACK-3.5.0 ; module list;
+     echo "Loading modules..."; . /etc/profile.d/99-it4i_modules.sh || true ; . /usr/share/Modules/init/bash || true; module load foss/2015b Python/2.7.9-foss-2015b pkg-config/0.27.1-foss-2015b ; module list;
 
 packages:
   python:
-    #host: true
-    link: shared
+    host: true
     use_python_host_packages: true
   mpi:
     use: host-mpi
@@ -46,18 +47,18 @@ packages:
     use: host-openblas
   freetype:
     use: host-freetype
-  szip:
-    use: host-szip
+#  szip:
+#    use: host-szip
   flex:
     use: host-flex
-  zlib:
-    use: host-zlib
+#  zlib:
+#    use: host-zlib
   pkg-config:
     use: host-pkg-config
   bison:
     use: host-bison
-  bzip2:
-    use: host-bzip2
+#  bzip2:
+#    use: host-bzip2
   m4:
     use: host-m4
   sqlite:

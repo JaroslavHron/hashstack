@@ -18,27 +18,25 @@ packages:
   hdf5:
 
   trilinos:
-    sources:
-    - key: tar.bz2:uqktsqkffhdfsbjgbm567y5o4ty52eav
-      url: http://trilinos.org/oldsite/download/files/trilinos-11.12.1-Source.tar.bz2
+    version: '11.12'
 
   petsc:
+    version: '3.6.1'
     build_with: |
-      openblas, suitesparse
+      openblas, boost
     download: |
-      superlu, superlu_dist, hypre, scalapack, blacs, mumps, trilinos, ml, scotch, metis, parmetis
+      superlu, superlu_dist, hypre, scalapack, blacs, mumps, ml, suitesparse, pord, scotch, ptscotch, metis, parmetis
     coptflags: -O2
     link: shared
     debug: false
 
   slepc:
-
+    version: '3.6.1'
   swig:
 
   boost:
     toolset: gcc
     address_model: 64
-    build_with: python
 
   matplotlib:
   numpy:
@@ -46,7 +44,9 @@ packages:
   scipy:
   mpi4py:
   petsc4py:
+    version: '3.6.0'
   slepc4py:
+    version: '3.6.0'
   eigen:
   vtk:
   suitesparse:
