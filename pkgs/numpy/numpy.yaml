@@ -1,7 +1,7 @@
 extends: [distutils_package]
 dependencies:
-  build: [blas]
-  run: [blas]
+  build: [blas,lapack]
+  run: [blas,lapack]
 
 sources:
   - key: tar.gz:zzluhi5cjpyt4a3t7lvsicyi4sgrhhtd
@@ -26,6 +26,7 @@ build_stages:
       library_dirs = ${OPENBLAS_DIR}/lib
       include_dirs = ${OPENBLAS_DIR}/include
       EOF
+
 
   - when: platform == 'linux'
     name: set-LDFLAGS

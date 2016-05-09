@@ -1,6 +1,8 @@
+extends: [host_package]
+
 when_build_dependency:
-  - {set: 'BLAS_LDFLAGS', value: '-L${OPENBLAS_DIR} -lopenblas'}
-  - {set: 'LAPACK_LDFLAGS', value: '-L${OPENBLAS_DIR} -lopenblas'}
-  - {prepend_path: 'LD_LIBRARY_PATH', value: '${OPENBLAS_DIR}'}
-  - {prepend_path: 'LIBRARY_PATH', value: '${OPENBLAS_DIR}'}
   - {set: 'OPENBLAS_DIR', value: '{{HOST_OPENBLAS_DIR}}'}
+  - {set: 'BLAS_LDFLAGS', value: '-L${OPENBLAS_DIR}/lib -lopenblas'}
+  - {set: 'LAPACK_LDFLAGS', value: '-L${OPENBLAS_DIR}/lib -lopenblas'}
+  - {prepend_path: 'LD_LIBRARY_PATH', value: '${OPENBLAS_DIR}/lib'}
+  - {prepend_path: 'LIBRARY_PATH', value: '${OPENBLAS_DIR}/lib'}

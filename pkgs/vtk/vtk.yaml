@@ -115,3 +115,6 @@ profile_links:
 when_build_dependency:
 - prepend_path: PYTHONPATH
   value: '${ARTIFACT}/lib/python{{pyver}}/site-packages'
+
+- set: VTK_DIR
+  value: '${ARTIFACT}/lib/vtk-5.10'

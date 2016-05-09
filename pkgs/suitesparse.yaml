@@ -1,7 +1,7 @@
 extends: [autotools_package]
 dependencies:
-  build: [blas]
-  run: [blas]
+  build: [blas,lapack]
+  run: [blas,lapack]
 
 sources:
   - url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.0.2.tar.gz
