@@ -27,15 +27,17 @@ parameters:
   HOST_MPIF90: mpif90
   HOST_MPIEXEC: mpirun
   HOST_CMAKE: /usr/bin/cmake
+  HOST_PYTHON: /usr/bin/python
+
   PROLOGUE: |
-    echo "Loading mpi module... " ; source /etc/profile.d/modules.sh || true ; module load openmpi/1.10.1-gnu ; module list ;
+    echo "Loading mpi module... " ; source /etc/profile.d/modules.sh || true ; module add openmpi/1.10.1-gnu ; module list ;
 
 packages:
   python:
     host: true
     use_python_host_packages: true
   mpi:
-    use: host-mpi
+    use: local-mpi
   blas:
     use: openblas
   lapack:

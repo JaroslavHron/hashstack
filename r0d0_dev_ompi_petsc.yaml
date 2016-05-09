@@ -1,0 +1,22 @@
+extends:
+- file: r0d0_dev_ompi.yaml
+
+parameters:
+  debug: false
+
+packages:
+  launcher:
+
+  boost:
+    toolset: gcc
+    address_model: 64
+
+  petsc:
+    version: '3.6.1'
+    build_with: |
+      openblas, boost
+    download: |
+      superlu, superlu_dist, hypre, scalapack, blacs, mumps, ml, suitesparse, pord, scotch, ptscotch, metis, parmetis
+    coptflags: -O2
+    link: shared
+    debug: false

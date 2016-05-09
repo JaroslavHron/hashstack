@@ -27,6 +27,8 @@ parameters:
   HOST_MPIF90: mpif90
   HOST_MPIEXEC: mpirun
   HOST_CMAKE: /usr/bin/cmake
+  HOST_PYTHON: /usr/bin/python
+
   PROLOGUE: |
     echo "Loading mpi module... " ; source /etc/profile.d/modules.sh || true ; module load mvapich/2.1-gnu ; module list ;
 
@@ -35,7 +37,7 @@ packages:
     host: true
     use_python_host_packages: true
   mpi:
-    use: host-mpi
+    use: local-mpi
   blas:
     use: openblas
   lapack:
