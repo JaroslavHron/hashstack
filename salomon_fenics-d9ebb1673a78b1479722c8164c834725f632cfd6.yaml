@@ -1,0 +1,41 @@
+extends:
+- file: salomon_fenics-dep.yaml
+
+packages:
+  fiat:
+    sources:
+      - key: git:e758fce7abbb64b6022a4f020ca8f5f9d66bb25c
+        url: https://bitbucket.org/fenics-project/fiat.git
+
+  ufl:
+    sources:
+      - key: git:448ca2c4e111b280c72a531468dca8e9310a8a3f
+        url: https://bitbucket.org/fenics-project/ufl.git
+
+  ffc:
+    sources:
+      - key: git:027eda7b74ebb7c7315801eae6fcca31fd823831
+        url: https://bitbucket.org/fenics-project/ffc.git
+
+  uflacs:
+    sources:
+      - key: git:156ce9e655f9c7290ccaa52da75d8ae6e68ac1d4
+        url: https://bitbucket.org/fenics-project/uflacs.git
+
+  instant:
+    sources:
+      - key: git:6618f89725a0abef469aabc3e56ac7cbd407cb85
+        url: https://bitbucket.org/fenics-project/instant.git
+
+  dolfin:
+    sources:
+      - key: git:d9ebb1673a78b1479722c8164c834725f632cfd6
+        url: https://bitbucket.org/fenics-project/dolfin.git
+    build_with: |
+      openblas, suitesparse, scotch, hdf5, petsc, petsc4py, trilinos, suitesparse, scotch, slepc, slepc4py, vtk, zlib
+    build_type: Developer
+
+  mshr:
+    sources:
+      - key: git:8626388a043e656d92d0e18665f989abc0ed6306
+        url: https://bitbucket.org/fenics-project/mshr.git
