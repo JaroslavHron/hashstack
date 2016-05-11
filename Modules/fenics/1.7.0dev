@@ -1,0 +1,28 @@
+#%Module1.0
+
+module-whatis "FEniCS project. A collection of free software for automated, efficient solution of differential equations."
+conflict fenics
+
+set prefix /scratch/work/user/hron/HASH/build/bld/profile 
+set profile gxyvosos4s65
+
+module load foss/2015g Python/2.7.9-foss-2015g pkg-config/0.27.1-foss-2015g
+
+setenv PROFILE ${profile}
+setenv PROFILE_INSTALL_DIR ${prefix}
+prepend-path PATH ${prefix}/${profile}/bin
+prepend-path PYTHONPATH ${prefix}/${profile}/lib/python2.7/site-packages
+prepend-path CMAKE_PREFIX_PATH ${prefix}/${profile}
+prepend-path CPATH ${prefix}/${profile}/include
+setenv BOOST_DIR ${prefix}/${profile}
+
+prepend-path MANPATH ${prefix}/${profile}/share/man
+
+#unsetenv LANG
+setenv LC_ALL C
+setenv LIBGL_ALWAYS_INDIRECT 1
+setenv OMP_NUM_THREADS 1
+
+setenv INSTANT_CACHE_DIR /scratch/work/user/$::env(USER)/.instant/${profile}/cache
+setenv INSTANT_ERROR_DIR /scratch/work/user/$::env(USER)/.instant/${profile}/error
+#setenv INSTANT_SYSTEM_CALL_METHOD OS_SYSTEM

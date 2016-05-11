@@ -1,0 +1,24 @@
+#%Module1.0
+
+module-whatis "Petsc - Portable, Extensible Toolkit for Scientific Computation."
+conflict petsc
+
+set prefix /scratch/work/user/hron/HASH/build/bld/profile 
+set profile ayg7bena3dt7
+
+module load foss/2015g Python/2.7.9-foss-2015g pkg-config/0.27.1-foss-2015g
+
+setenv PROFILE ${profile}
+setenv PROFILE_INSTALL_DIR ${prefix}
+
+prepend-path PATH ${prefix}/${profile}/bin
+setenv PETSC_DIR ${prefix}/${profile}
+prepend-path LD_LIBRARY_PATH ${prefix}/${profile}/lib
+prepend-path LIBRARY_PATH ${prefix}/${profile}/lib
+prepend-path CPATH ${prefix}/${profile}/include
+prepend-path PKG_CONFIG_PATH ${prefix}/${profile}/lib/pkgconfig
+prepend-path MANPATH ${prefix}/${profile}/share/man
+
+setenv PETSC_PATH ${prefix}/${profile}
+setenv PETSC_DIR ${prefix}/${profile}
+setenv PETSC_ARCH arch-linux2-c-opt
