@@ -48,7 +48,6 @@ packages:
   slepc4py:
     version: '3.6.0'
   eigen:
-  vtk:
   suitesparse:
   scotch:
   mpfr:

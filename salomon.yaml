@@ -27,11 +27,11 @@ parameters:
   HOST_MPIF90: mpif90
   HOST_MPIEXEC: mpirun
   HOST_CMAKE: /usr/bin/cmake
-  HOST_OPENBLAS_DIR: /apps/all/OpenBLAS/0.2.14-GNU-5.1.0-2.25-LAPACK-3.5.0/
+  HOST_OPENBLAS_DIR: /apps/all/OpenBLAS/0.2.14-GNU-4.9.3-2.25-LAPACK-3.5.0/
   HOST_PYTHON: /apps/all/Python/2.7.9-foss-2015b/bin/python
 
   PROLOGUE: |
-     echo "Loading modules..."; . /etc/profile.d/99-it4i_modules.sh || true ; . /usr/share/Modules/init/bash || true; module load foss/2015b Python/2.7.9-foss-2015b pkg-config/0.27.1-foss-2015b ; module list;
+     echo "Loading modules..."; . /etc/profile.d/99-it4i_modules.sh || true ; . /usr/share/Modules/init/bash || true; module load foss/2015g Python/2.7.9-foss-2015g pkg-config/0.27.1-foss-2015g ; module list;
 
 packages:
   python:

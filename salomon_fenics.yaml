@@ -14,7 +14,7 @@ packages:
 
   dolfin:
     build_with: |
-      openblas, suitesparse, scotch, hdf5, petsc, petsc4py, trilinos, suitesparse, scotch, slepc, slepc4py, vtk, zlib
+      openblas, suitesparse, scotch, hdf5, petsc, petsc4py, trilinos, suitesparse, scotch, slepc, slepc4py, zlib
 #    with_find_path: true
 
   mshr:
