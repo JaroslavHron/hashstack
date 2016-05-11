@@ -28,7 +28,7 @@ parameters:
   HOST_MPIEXEC: mpirun
   HOST_CMAKE: /usr/bin/cmake
   HOST_OPENBLAS_DIR: /apps/all/OpenBLAS/0.2.14-GNU-4.9.3-2.25-LAPACK-3.5.0/
-  HOST_PYTHON: /apps/all/Python/2.7.9-foss-2015b/bin/python
+  HOST_PYTHON: /apps/all/Python/2.7.9-foss-2015g/bin/python
 
   PROLOGUE: |
      echo "Loading modules..."; . /etc/profile.d/99-it4i_modules.sh || true ; . /usr/share/Modules/init/bash || true; module load foss/2015g Python/2.7.9-foss-2015g pkg-config/0.27.1-foss-2015g ; module list;
@@ -47,17 +47,17 @@ packages:
     use: host-openblas
   freetype:
     use: host-freetype
-#  szip:
+  szip:
 #    use: host-szip
   flex:
     use: host-flex
-#  zlib:
+  zlib:
 #    use: host-zlib
   pkg-config:
     use: host-pkg-config
   bison:
     use: host-bison
-#  bzip2:
+  bzip2:
 #    use: host-bzip2
   m4:
     use: host-m4
