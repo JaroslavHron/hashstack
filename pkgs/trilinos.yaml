@@ -29,6 +29,7 @@ defaults:
   # Build Teuchos in Debug mode (RCP/Ptr dangling pointer checks, bounds
   # checks, ...)
   teuchos_debug: false
+  fix_pythonlib: false
   version: '12.6'
 
 build_stages:
@@ -63,6 +64,10 @@ build_stages:
           '-D Trilinos_ENABLE_DEVELOPMENT_MODE:BOOL=OFF',
           '-D PYTHON_EXECUTABLE:FILEPATH=${PYTHON}']
 
+- when: fix_pythonlib
+  name: configure
+  mode: update
+  extra: ['-D PYTHON_LIBRARY=${EBROOTPYTHON}/lib/python2.7/config/libpython2.7.a']
 
 - when: teuchos_debug
   name: configure
