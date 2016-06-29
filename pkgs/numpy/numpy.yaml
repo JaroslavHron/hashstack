@@ -1,14 +1,14 @@
-extends: [distutils_package]
+extends: [setuptools_package]
 dependencies:
-  build: [blas,lapack]
-  run: [blas,lapack]
+  build: [blas, lapack, cython]
+  run: [blas, lapack,cython]
 
 sources:
-  - key: tar.gz:zzluhi5cjpyt4a3t7lvsicyi4sgrhhtd
-    url: http://downloads.sourceforge.net/numpy/numpy-1.8.2.tar.gz
+  - key: tar.gz:5cmod4vyscjlsu2sucsygfjkdbacbjes
+    url: https://github.com/numpy/numpy/archive/v1.11.0.tar.gz
+
 
 build_stages:
-
   - when: platform == 'linux'
     name: create-site.cfg
     before: install
